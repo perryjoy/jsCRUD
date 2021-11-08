@@ -1,0 +1,49 @@
+extends layout
+block content
+	html
+		head
+			title=data.title
+			style
+				include /stylesheets/table.css
+
+		body
+			h1 Welcome to my CRUD
+			p to use it, just click on the buttons below
+			h2 Add record
+			form(id = 'toAdd')
+				text(name='dummy3spaces')   
+				input(name='station' value='station identifier')
+				input(name='day' size='2' value='day')
+				input(name='month' size='2' value='month')
+				input(name='year' size='4' value='year')
+				input(name='temp' size='5' value='temp')
+				button(type='button' onclick='clickHandler(1)') add record
+			h2 Select record by id
+			form(id = 'toSeek')
+				input(name='id' value='index of observation')
+				button(type='button' onclick='clickHandler(4)') go
+			h2 Edit record selected
+			form(id = 'toEdit')
+				label(name='idToEdit' id='idToEdit')   
+				input(name='station' value='station identifier')
+				input(name='day' size='2' value='day')
+				input(name='month' size='2' value='month')
+				input(name='year' size='4' value='year')
+				input(name='temp' size='5' value='temp')
+				button(type='button' onclick='clickHandler(5)') save changes
+				button(type='button' onclick='clickHandler(3)') delete record
+
+			h2 View whole data
+			p
+			//button(type='button' onclick="clickHandler(1)") b1
+			button(type='button' onclick="clickHandler(2)") update table
+			p
+
+			
+			table(id="data")
+			
+			script(src = '/javascripts/userTools.js')
+			//script(type="module" src = '/javascripts/tools.js')
+
+
+	
